@@ -1,4 +1,5 @@
 from pathlib import Path
+from typing import Callable
 
 from rich.text import Text
 from textual import events, on, work
@@ -114,6 +115,9 @@ class VolumeFader(Container):
 class DjApp(App):
     CSS_PATH = "dj.tcss"
     TITLE = "🎧 DJ Booth"
+    on_track_loaded: Callable[[int, Path], None] = staticmethod(
+        lambda deck, path: None
+    )
 
     def compose(self) -> ComposeResult:
         yield Header()
@@ -141,7 +145,9 @@ class DjApp(App):
         num = event.button.id.split("-")[1]
         deck = self.query_one(f"#deck-{num}", Deck)
         if path := await self.push_screen_wait(FileOpen()):
-            deck.track_name = Path(path).name
+            path = Path(path)
+            deck.track_name = path.name
+            self.on_track_loaded(num, path)
 
 
 def main():

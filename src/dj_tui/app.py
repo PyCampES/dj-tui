@@ -33,7 +33,11 @@ class App:
             callback=self.button_pressed,
         )
         self.midi_controller.start()
+        self.ui.on_track_loaded = self.track_loaded
         self.ui.run()
+
+    def track_loaded(self, deck_num: int, path: Path):
+        self.audio_controller.load_song(path, Deck(deck_num))
 
     def crossfader(self, event: flx4py.KnobEvent):
         normalized_value = event.value
@@ -47,12 +51,7 @@ class App:
         self.ui.play(event.deck)
         deck = Deck(event.deck)
         action = self.state_controller.get_toggled_action(deck)
-        # song_path = self.ui.query_one(f"#deck-0").track_name
         try:
-            self.audio_controller.load_song(
-                Path("/home/juanlu/Music/Without You (feat. Usher) (Radio Edit).mp3"),
-                deck,
-            )
             self.audio_controller.play_pause(action, deck)
         except Exception as exc:
             logger.exception("OH NO", exc_info=exc)
