@@ -93,3 +93,13 @@ def load_song(path: Path, deck: Deck) -> None:
     """
     ...
 ```
+
+Example:
+
+```python3
+from dj_tui.audio import Deck, load_song
+from pathlib import Path
+
+song_path = Path("/home/juanlu/Music/Avicii - Levels (Radio Edit).mp3")
+load_song(song_path, Deck.LEFT)
+```
