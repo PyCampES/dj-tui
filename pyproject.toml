@@ -14,3 +14,26 @@ dependencies = [
     "soundfile>=0.13.1",
     "textual>=8.2.5",
 ]
+
+[tool.ruff]
+show-fixes = true
+
+[tool.ruff.lint]
+select = [
+    "F",  # Pyflakes
+    "E",  # Pycodestyle
+    "W",  # Pycodestyle
+    "D",  # Pydocstyle
+    "UP",  # pyupgrade
+    "I",  # isort
+    "PL",  # Pylint
+]
+ignore = [
+    "D203",  # incorrect-blank-line-before-class
+    "D213",  # multi-line-summary-second-line
+]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.15.12",
+]
