@@ -4,6 +4,14 @@
 
 DJ mixer on the terminal.
 
+To launch it, clone the repository and do
+
+```
+$ uv run dj-tui
+```
+
+# Development notes
+
 ## Inspiration
 
 Open source, multi-platform DJ software exists: [Mixxx](https://mixxx.org/).
