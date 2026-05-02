@@ -54,11 +54,11 @@ class App:
         try:
             self.audio_controller.play_pause(action, deck)
         except Exception as exc:
-            logger.exception("OH NO", exc_info=exc)
+            logger.info("No song loaded")
 
 
 def main():
-    logging.basicConfig(level=logging.DEBUG)
+    logging.basicConfig(level=logging.WARNING)
     app = App(
         DjApp(),
         DDJ200(),
