@@ -46,3 +46,7 @@ MIDI and DJ controllers:
 
 TUI inspiration:
 - https://github.com/oleksis/awesome-textualize-projects
+
+Playing audio:
+- https://pypi.org/project/sounddevice/
+- https://pypi.org/project/soundfile/
