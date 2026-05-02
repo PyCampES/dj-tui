@@ -11,8 +11,7 @@ midi_controller = flx4py.DDJFlx4("DDJ-200")
 
 @midi_controller.on_knob("CH_FADER")
 def crossfader(event: flx4py.KnobEvent):
-    # FIXME: normalize value
-    normalized_value = event.value
+    normalized_value = event.value * 100
     set_volume(normalized_value, Deck(event.deck))
 
 

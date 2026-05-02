@@ -31,9 +31,8 @@ class App:
         self.ui.run()
 
     def crossfader(self, event: flx4py.KnobEvent):
-        # FIXME: normalize value
-        normalized_value = event.value
-        self.ui.set_volume(event.deck, 0)
+        normalized_value = event.value * 100
+        self.ui.set_volume(event.deck, normalized_value)
         set_volume(normalized_value, Deck(event.deck))
 
     def button_pressed(self, event: flx4py.ButtonEvent):
