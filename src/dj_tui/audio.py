@@ -87,7 +87,9 @@ class AudioController:
         sound = pygame.mixer.Sound(path)
         if deck is Deck.LEFT:
             self.sound_0 = sound
+            self.playing_0 = False # forzar que playpause use play
         elif deck is Deck.RIGHT:
             self.sound_1 = sound
+            self.playing_1 = False # forzar que playpause use play
         else:
             raise ValueError("Invalid deck")
