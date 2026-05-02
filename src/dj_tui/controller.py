@@ -1,8 +1,8 @@
 import flx4py
 import time
 
-from src.dj_tui.model import StateController
-from audio import play_pause, set_volume, Deck
+from .model import StateController
+from .audio import play_pause, set_volume, Deck
 
 state_controller = StateController()
 midi_controller = flx4py.DDJFlx4("DDJ-200")
@@ -25,7 +25,11 @@ def button_pressed(event: flx4py.ButtonEvent):
     play_pause(action, deck)
 
 
-if __name__ == "__main__":
+def main():
     with midi_controller:
         while True:
             time.sleep(1)
+
+
+if __name__ == "__main__":
+    main()
