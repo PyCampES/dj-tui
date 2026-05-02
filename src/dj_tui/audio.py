@@ -1,6 +1,6 @@
-from typing_extensions import Never
 from enum import Enum, IntEnum, auto
 from pathlib import Path
+
 import pygame
 
 
@@ -13,8 +13,8 @@ class Action(Enum):
     PLAY = auto()
     PAUSE = auto()
 
-class AudioController():
 
+class AudioController:
     def __init__(self):
         pygame.mixer.init()
         self.chan_0 = pygame.mixer.Channel(0)
@@ -23,8 +23,6 @@ class AudioController():
         self.sound_1 = None
         self.playing_0 = False
         self.playing_1 = False
-
-            
 
     def play_pause(self, action: Action, deck: Deck) -> None:
         """Play and pause action on a specific deck.
@@ -36,36 +34,33 @@ class AudioController():
         if deck is Deck.LEFT:
             if self.sound_0 is None:
                 raise RuntimeError
-            else:
-                if action is Action.PAUSE:
-                    self.chan_0.pause()
-                elif action is Action.PLAY:
-                    if self.playing_0:
-                        self.chan_0.unpause()
-                    else:
-                        self.chan_0.play(self.sound_0)
-                        self.playing_0 = True
+            elif action is Action.PAUSE:
+                self.chan_0.pause()
+            elif action is Action.PLAY:
+                if self.playing_0:
+                    self.chan_0.unpause()
                 else:
-                    raise ValueError("Invalid action")
+                    self.chan_0.play(self.sound_0)
+                    self.playing_0 = True
+            else:
+                raise ValueError("Invalid action %s", action)
 
         elif deck is Deck.RIGHT:
             if self.sound_1 is None:
                 raise RuntimeError
-            else:
-                if action is Action.PAUSE:
-                    self.chan_1.pause()
-                elif action is Action.PLAY:
-                    if self.playing_1:
-                        self.chan_1.unpause()
-                    else:
-                        self.chan_1.play(self.sound_1)
-                        self.playing_1 = True
+            elif action is Action.PAUSE:
+                self.chan_1.pause()
+            elif action is Action.PLAY:
+                if self.playing_1:
+                    self.chan_1.unpause()
                 else:
-                    raise ValueError("Invalid action")
+                    self.chan_1.play(self.sound_1)
+                    self.playing_1 = True
+            else:
+                raise ValueError("Invalid action %s", action)
         else:
             raise ValueError("Invalid deck")
         ...
-
 
     def set_volume(self, value: float, deck: Deck) -> None:
         """Set volume on a specific deck.
@@ -81,7 +76,6 @@ class AudioController():
         else:
             raise ValueError("Invalid deck")
         ...
-
 
     def load_song(self, path: Path, deck: Deck) -> None:
         """Load an audio file to a specific deck.

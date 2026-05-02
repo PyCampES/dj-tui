@@ -1,4 +1,4 @@
-from src.dj_tui.audio import Action, Deck
+from .audio import Action, Deck
 
 
 class StateController:
