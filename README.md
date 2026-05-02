@@ -50,3 +50,44 @@ TUI inspiration:
 Playing audio:
 - https://pypi.org/project/sounddevice/
 - https://pypi.org/project/soundfile/
+
+## Architecture
+
+### Sound layer
+
+```python
+from enum import Enum, auto
+
+class Deck(Enum):
+    LEFT = auto()
+    RIGHT = auto()
+
+
+class Action(Enum):
+    PLAY = auto()
+    PAUSE = auto()
+
+
+def play_pause(action: Action, deck: Deck) -> None:
+    """
+    Params:
+        action: Action.PLAY or Action.PAUSE.
+        deck: Deck.LEFT or Deck.RIGHT.
+    """
+    ...
+
+
+def set_volume(value: int, deck: Deck) -> None:
+    """
+    Params:
+        value: Volume from 0 to 126.
+        deck: Deck.LEFT or Deck.RIGHT.
+    """
+    ...
+
+def load_song(path: Path, deck: Deck) -> None:
+    """
+    Params:
+        path: Path of the song to be loaded.
+        deck: Deck.LEFT or Deck.RIGHT.
+```
