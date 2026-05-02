@@ -90,4 +90,6 @@ def load_song(path: Path, deck: Deck) -> None:
     Params:
         path: Path of the song to be loaded.
         deck: Deck.LEFT or Deck.RIGHT.
+    """
+    ...
 ```
