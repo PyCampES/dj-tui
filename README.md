@@ -10,6 +10,8 @@ To launch it, clone the repository and do
 $ uv run dj-tui
 ```
 
+![DJ Tui](screenshot.png)
+
 # Development notes
 
 ## Inspiration
