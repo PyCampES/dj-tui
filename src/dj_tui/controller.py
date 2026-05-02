@@ -1,8 +1,9 @@
-import flx4py
 import time
 
+import flx4py
+
+from .audio import Deck, play_pause, set_volume
 from .model import StateController
-from .audio import play_pause, set_volume, Deck
 
 state_controller = StateController()
 midi_controller = flx4py.DDJFlx4("DDJ-200")

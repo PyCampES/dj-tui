@@ -27,7 +27,7 @@ class Deck(Container):
             yield Button(
                 "📁  Cargar pista", id=f"load-{self.deck_num}", classes="load-btn"
             )
-            yield VolumeFader(id="fader")
+            yield VolumeFader(id=f"fader-{self.deck_num}")
 
     def watch_track_name(self, name: str) -> None:
         self.query_one(".track-name", Label).update(name)
@@ -125,8 +125,15 @@ class DjApp(App):
     @on(Button.Pressed, ".play-btn")
     def on_play(self, event: Button.Pressed) -> None:
         num = event.button.id.split("-")[1]
+        self.play(num)
+
+    def play(self, num) -> None:
         deck = self.query_one(f"#deck-{num}", Deck)
         deck.is_playing = not deck.is_playing
+        deck.watch_is_playing(deck.is_playing)
+
+    def set_volume(self, deck_num, value) -> None:
+        self.query_one(f"#fader-{deck_num}", expect_type=VolumeFader).volume = value
 
     @on(Button.Pressed, ".load-btn")
     @work
