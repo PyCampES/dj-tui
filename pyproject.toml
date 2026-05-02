@@ -1,0 +1,11 @@
+[project]
+name = "dj-tui"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "sounddevice>=0.5.5",
+    "soundfile>=0.13.1",
+    "textual>=8.2.5",
+]
