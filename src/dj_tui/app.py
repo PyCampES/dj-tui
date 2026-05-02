@@ -46,7 +46,7 @@ class App:
             return
         self.ui.play(event.deck)
         deck = Deck(event.deck)
-        action = self.state_controller.get_action(deck)
+        action = self.state_controller.get_toggled_action(deck)
         # song_path = self.ui.query_one(f"#deck-0").track_name
         try:
             self.audio_controller.load_song(

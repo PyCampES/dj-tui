@@ -6,7 +6,7 @@ class StateController:
         self.deck_left_state = Action.PAUSE
         self.deck_right_state = Action.PAUSE
 
-    def set_action(self, deck: Deck) -> Action:
+    def get_toggled_action(self, deck: Deck) -> Action:
         if deck == Deck.LEFT:
             self.deck_left_state = self._toggle_action(self.deck_left_state)
             return self.deck_left_state
