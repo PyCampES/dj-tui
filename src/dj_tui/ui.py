@@ -1,5 +1,5 @@
+from collections.abc import Callable
 from pathlib import Path
-from typing import Callable
 
 from rich.text import Text
 from textual import events, on, work
@@ -115,9 +115,7 @@ class VolumeFader(Container):
 class DjApp(App):
     CSS_PATH = "dj.tcss"
     TITLE = "🎧 DJ Booth"
-    on_track_loaded: Callable[[int, Path], None] = staticmethod(
-        lambda deck, path: None
-    )
+    on_track_loaded: Callable[[int, Path], None] = staticmethod(lambda deck, path: None)
 
     def compose(self) -> ComposeResult:
         yield Header()
@@ -142,7 +140,7 @@ class DjApp(App):
     @on(Button.Pressed, ".load-btn")
     @work
     async def on_load(self, event: Button.Pressed) -> None:
-        num = event.button.id.split("-")[1]
+        num = int(event.button.id.split("-")[1])
         deck = self.query_one(f"#deck-{num}", Deck)
         if path := await self.push_screen_wait(FileOpen()):
             path = Path(path)

@@ -60,7 +60,6 @@ class AudioController:
                 raise ValueError("Invalid action %s", action)
         else:
             raise ValueError("Invalid deck")
-        ...
 
     def set_volume(self, value: float, deck: Deck) -> None:
         """Set volume on a specific deck.
@@ -75,7 +74,6 @@ class AudioController:
             self.chan_1.set_volume(value)
         else:
             raise ValueError("Invalid deck")
-        ...
 
     def load_song(self, path: Path, deck: Deck) -> None:
         """Load an audio file to a specific deck.
@@ -87,9 +85,9 @@ class AudioController:
         sound = pygame.mixer.Sound(path)
         if deck is Deck.LEFT:
             self.sound_0 = sound
-            self.playing_0 = False # forzar que playpause use play
+            self.playing_0 = False  # forzar que playpause use play
         elif deck is Deck.RIGHT:
             self.sound_1 = sound
-            self.playing_1 = False # forzar que playpause use play
+            self.playing_1 = False  # forzar que playpause use play
         else:
             raise ValueError("Invalid deck")
