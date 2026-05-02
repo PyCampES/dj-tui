@@ -143,14 +143,6 @@ class DjApp(App):
         if path := await self.push_screen_wait(FileOpen()):
             deck.track_name = Path(path).name
 
-    def action_vol_up(self) -> None:
-        fader = self.query_one(VolumeFader)
-        fader.volume += 5
-
-    def action_vol_down(self) -> None:
-        fader = self.query_one(VolumeFader)
-        fader.volume -= 5
-
 
 def main():
     DjApp().run()
