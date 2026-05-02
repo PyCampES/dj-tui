@@ -1,7 +1,6 @@
 from pathlib import Path
 
 from rich.text import Text
-
 from textual import events, on, work
 from textual.app import App, ComposeResult
 from textual.containers import Container, Horizontal
@@ -9,7 +8,6 @@ from textual.message import Message
 from textual.reactive import reactive
 from textual.widget import Widget
 from textual.widgets import Button, Footer, Header, Label, Static
-
 from textual_fspicker import FileOpen
 
 
@@ -147,5 +145,9 @@ class DjApp(App):
         fader.volume -= 5
 
 
-if __name__ == "__main__":
+def main():
     DjApp().run()
+
+
+if __name__ == "__main__":
+    main()

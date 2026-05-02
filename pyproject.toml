@@ -17,6 +17,9 @@ dependencies = [
     "textual-fspicker>=1.0.0",
 ]
 
+[project.scripts]
+dj-tui = "dj_tui.ui:main"
+
 [tool.ruff]
 show-fixes = true
 
