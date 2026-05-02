@@ -15,15 +15,16 @@ class Action(Enum):
 
 class AudioController():
 
-    def check_audio_mixer_started(self,):
-        '''Check if pygame audio mixer is running, start it
-        if it is not. 
-        Returns the two audio channels.
-        '''
-        if pygame.mixer.get_init() is None:
-            pygame.mixer.init()
-            self.chan_0 = pygame.mixer.Channel(0)
-            self.chan_1 = pygame.mixer.Channel(1)
+    def __init__(self):
+        pygame.mixer.init()
+        self.chan_0 = pygame.mixer.Channel(0)
+        self.chan_1 = pygame.mixer.Channel(1)
+        self.sound_0 = None
+        self.sound_1 = None
+        self.playing_0 = False
+        self.playing_1 = False
+
+            
 
     def play_pause(self, action: Action, deck: Deck) -> None:
         """Play and pause action on a specific deck.
@@ -32,18 +33,53 @@ class AudioController():
             action: Action.PLAY or Action.PAUSE.
             deck: Deck.LEFT or Deck.RIGHT.
         """
-        self.check_audio_mixer_started()
+        if deck is Deck.LEFT:
+            if self.sound_0 is None:
+                raise RuntimeError
+            else:
+                if action is Action.PAUSE:
+                    self.chan_0.pause()
+                elif action is Action.PLAY:
+                    if self.playing_0:
+                        self.chan_0.unpause()
+                    else:
+                        self.chan_0.play(self.sound_0)
+                        self.playing_0 = True
+                else:
+                    raise ValueError("Invalid action")
+
+        elif deck is Deck.RIGHT:
+            if self.sound_1 is None:
+                raise RuntimeError
+            else:
+                if action is Action.PAUSE:
+                    self.chan_1.pause()
+                elif action is Action.PLAY:
+                    if self.playing_1:
+                        self.chan_1.unpause()
+                    else:
+                        self.chan_1.play(self.sound_1)
+                        self.playing_1 = True
+                else:
+                    raise ValueError("Invalid action")
+        else:
+            raise ValueError("Invalid deck")
         ...
 
 
-    def set_volume(self, value: int, deck: Deck) -> None:
+    def set_volume(self, value: float, deck: Deck) -> None:
         """Set volume on a specific deck.
 
         Params:
-            value: Volume from 0 to 126.
+            value: Volume from 0 to 1.
             deck: Deck.LEFT or Deck.RIGHT.
         """
-        self.check_audio_mixer_started()
+        if deck is Deck.LEFT:
+            self.chan_0.set_volume(value)
+        elif deck is Deck.RIGHT:
+            self.chan_1.set_volume(value)
+        else:
+            raise ValueError("Invalid deck")
         ...
 
 
@@ -54,10 +90,10 @@ class AudioController():
             path: Path of the song to be loaded.
             deck: Deck.LEFT or Deck.RIGHT.
         """
-        self.check_audio_mixer_started()
+        sound = pygame.mixer.Sound(path)
         if deck is Deck.LEFT:
-            ...
+            self.sound_0 = sound
         elif deck is Deck.RIGHT:
-            ...
+            self.sound_1 = sound
         else:
             raise ValueError("Invalid deck")
