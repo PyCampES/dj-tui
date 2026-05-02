@@ -114,7 +114,7 @@ class VolumeFader(Container):
 
 class DjApp(App):
     CSS_PATH = "dj.tcss"
-    TITLE = "🎧 DJ Booth"
+    TITLE = "🎧 DJ Tui"
     on_track_loaded: Callable[[int, Path], None] = staticmethod(lambda deck, path: None)
 
     def compose(self) -> ComposeResult:
