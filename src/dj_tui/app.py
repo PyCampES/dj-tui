@@ -2,7 +2,6 @@ from dataclasses import dataclass
 
 import flx4py
 
-from .audio import Deck, play_pause, set_volume
 from .model import StateController
 from .ui import DjApp
 

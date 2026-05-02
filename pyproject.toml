@@ -10,6 +10,7 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "flx4py>=0.1.0",
+    "pygame>=2.6.1",
     "sounddevice>=0.5.5",
     "soundfile>=0.13.1",
     "textual>=8.2.5",
