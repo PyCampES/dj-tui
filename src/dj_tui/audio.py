@@ -39,4 +39,9 @@ def load_song(path: Path, deck: Deck) -> None:
         path: Path of the song to be loaded.
         deck: Deck.LEFT or Deck.RIGHT.
     """
-    ...
+    if deck is Deck.LEFT:
+        ...
+    elif deck is Deck.RIGHT:
+        ...
+    else:
+        raise ValueError("Invalid deck")
