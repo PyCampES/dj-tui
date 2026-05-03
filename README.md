@@ -14,7 +14,7 @@ $ uv run dj-tui
 
 ![DJ Tui](screenshot.png)
 
-### Architecture
+## Architecture
 
 We combine three modules to build the application:
 * [dj_tui.controller](dj_tui/controller.py): Handles MIDI controller input and translates it into application actions
