@@ -2,11 +2,13 @@
 
 ![A PyCamp project](https://img.shields.io/badge/pycamp-project-green?logo=python)
 
-DJ mixer on the terminal.
+DJ Tui is a DJ mixer on the terminal that can be controlled with a DDJ-200 MIDI controller.
 
-To launch it, clone the repository and do
+It's all written in Python, using the [Textual](https://textual.textualize.io/) framework to generate the TUI.
 
-```
+To launch it, clone the repository and run:
+
+```bash
 $ uv run dj-tui
 ```
 
@@ -30,6 +32,7 @@ $ pip install dj-tui
 ```
 
 That launches a TUI with the following capabilities:
+
 - Loading an MP3 on the left deck
 - Loading an MP3 on the right deck
 - Setting and playing a single cue point on the left and right track
@@ -49,14 +52,17 @@ That launches a TUI with the following capabilities:
 ## Resources
 
 MIDI and DJ controllers:
+
 - https://manual.mixxx.org/2.4/en/hardware/controllers/pioneer_ddj_200
 - https://web.archive.org/web/20250910180949/https://www.pioneerdj.com/-/media/pioneerdj/software-info/controller/ddj-200/ddj-200_midi_message_list_e2.pdf
 - https://pypi.org/project/mido/
 - https://pypi.org/project/flx4py/ (Pioneer DDJ-FLX4)
 
 TUI inspiration:
+
 - https://github.com/oleksis/awesome-textualize-projects
 
 Playing audio:
+
 - https://pypi.org/project/sounddevice/
 - https://pypi.org/project/soundfile/
