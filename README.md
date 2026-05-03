@@ -1,4 +1,4 @@
-# DJ Tui
+# DJ Tui 🎧
 
 ![A PyCamp project](https://img.shields.io/badge/pycamp-project-green?logo=python)
 
@@ -14,16 +14,18 @@ $ uv run dj-tui
 
 ![DJ Tui](screenshot.png)
 
-# Development notes
+---
 
-## Inspiration
+### Development notes
+
+#### Inspiration
 
 Open source, multi-platform DJ software exists: [Mixxx](https://mixxx.org/).
 
 We want to do something similar, with a Terminal User Interface (TUI).
 Our framework of choice is [Textual](https://textual.textualize.io/).
 
-## MVP
+#### MVP
 
 A Python package that can be installed as follows
 
@@ -40,7 +42,7 @@ That launches a TUI with the following capabilities:
 - These actions can be performed with a DJ controller, for example a Pioneer DDJ-200,
   as well as with basic keyboard shortcuts (for those who don't possess one)
 
-## Extras
+#### Extras
 
 - Display waveform of tracks
 - Visual representation of the jog wheels
@@ -49,7 +51,7 @@ That launches a TUI with the following capabilities:
 - Equalizers (knobs to tweak low, mid, high frequencies)
 - ...? (Ideas welcome!)
 
-## Resources
+#### Resources
 
 MIDI and DJ controllers:
 
