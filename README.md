@@ -1,4 +1,4 @@
-# DJ Tui 🎧
+[sample-speech-1m.mp3](https://github.com/user-attachments/files/27315052/sample-speech-1m.mp3)# DJ Tui 🎧
 
 ![A PyCamp project](https://img.shields.io/badge/pycamp-project-green?logo=python)
 
@@ -13,6 +13,8 @@ $ uv run dj-tui
 ```
 
 ![DJ Tui](screenshot.png)
+
+🎥 ➡️ [click to watch demo!](https://github.com/user-attachments/assets/63939740-ad24-4386-89b3-a13e004baa83)
 
 ## Architecture
 
