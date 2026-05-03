@@ -1,4 +1,4 @@
-[sample-speech-1m.mp3](https://github.com/user-attachments/files/27315052/sample-speech-1m.mp3)# DJ Tui 🎧
+# DJ Tui 🎧
 
 ![A PyCamp project](https://img.shields.io/badge/pycamp-project-green?logo=python)
 
